@@ -48,7 +48,7 @@ public class EdmontonPropertyAssessmentManager {
     public List<EdmontonPropertyAssessment> findDistintWard(String ward){
         return null;
     }
-    public List<EdmontonPropertyAssessment> findDistinctNieghbourhood(){ return null} // THis needs to accept maps or something
+    public List<EdmontonPropertyAssessment> findDistinctNieghbourhood(){ return null;} // THis needs to accept maps or something
     public List<String> findDistinctNeighborhoods(){
         // what does this even mean?
         return null;
