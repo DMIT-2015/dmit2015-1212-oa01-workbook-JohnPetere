@@ -1,6 +1,9 @@
 package dmit2015.JohnPeterEberhard.domain;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +15,9 @@ public class EdmontonPropertyAssessmentManager {
 
     private List<EdmontonPropertyAssessment> propertyAssessmentList;
     private static EdmontonPropertyAssessmentManager instance;
+    public EdmontonPropertyAssessmentManager() {
+
+    }
     public static EdmontonPropertyAssessmentManager getInstance() throws IOException {
         if( instance ==null){
             synchronized (EdmontonPropertyAssessmentManager.class){
@@ -22,10 +28,21 @@ public class EdmontonPropertyAssessmentManager {
         }
         return instance;
     }
+    private List<EdmontonPropertyAssessment> loadCSVData() throws IOException{
+        List<EdmontonPropertyAssessment> dataList = new ArrayList<>();
+        try(var reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/data/Property_Assessment_Data__Current_Calendar_Year_.csv")))){
+            final var delimiter = ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
+            String line;
+            reader.readLine();
 
-    public EdmontonPropertyAssessmentManager() {
+            while ( (line = reader.readLine()) != null) {
+              // assign values stuff
 
+            }
+        }
+      return null;
     }
+
 
 /*
     TODO
