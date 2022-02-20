@@ -10,10 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * TODO: Rewatch Videso for assignemtn 03 topic
- *
- *TODO:import web.xml? change up persistince.xml
- * TODO: Create test
+
  */
 // managing the entity
 // sort of like the DAL in ASP

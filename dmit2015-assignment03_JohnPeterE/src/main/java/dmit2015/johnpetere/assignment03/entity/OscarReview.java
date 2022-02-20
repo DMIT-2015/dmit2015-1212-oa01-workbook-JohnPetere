@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 
 
 @Entity
+
 @Table(name = "oscarreview")
 /**
  * @author: John-Peter Eberhard
