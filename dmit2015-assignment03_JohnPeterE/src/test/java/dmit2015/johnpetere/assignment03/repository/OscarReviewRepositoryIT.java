@@ -25,16 +25,31 @@ class OscarReviewRepositoryIT {
 
     @Deployment
     public static WebArchive createDeployment(){
+//        PomEquippedResolveStage pomFile = Maven.resolver().loadPomFromFile("pom.xml");
+
+//        return ShrinkWrap.create(WebArchive.class,"test.war")
+//                .addAsLibraries(pomFile.resolve("org.hsqldb:hsqldb:2.6.1").withTransitivity().asFile())
+//                .addAsLibraries(pomFile.resolve("org.hamcrest:hamcrest:2.2").withTransitivity().asFile())
+//                .addClass(Config.class)
+//                .addClasses(OscarReview.class, OscarReviewRepository.class)
+//                .addAsResource("META-INF/persistence.xml")
+//                .addAsResource("META-INF/sql/import-data.sql")
+//                .addAsWebInfResource(EmptyAsset.INSTANCE,"beans.xml");
+
         PomEquippedResolveStage pomFile = Maven.resolver().loadPomFromFile("pom.xml");
 
-        return ShrinkWrap.create(WebArchive.class,"test.war")
+        WebArchive webArchive = ShrinkWrap.create(WebArchive.class, "test.war")
                 .addAsLibraries(pomFile.resolve("org.hsqldb:hsqldb:2.6.1").withTransitivity().asFile())
                 .addAsLibraries(pomFile.resolve("org.hamcrest:hamcrest:2.2").withTransitivity().asFile())
-                .addClass(Config.class)
-                .addClasses(OscarReview.class, OscarReviewRepository.class)
-                .addAsResource("META-INF/persistence.xml")
-                .addAsResource("META-INF/sql/import-data.sql")
-                .addAsWebInfResource(EmptyAsset.INSTANCE,"beans.xml");
+                .addClass(dmit2015.johnpetere.assignment03.config.Config.class)
+                .addClasses(OscarReview.class,OscarRepository.class )
+                .addAsResource("META-INF/persistence.xml")// not reading doesn't exist?
+                .addAsResource("META-INF/sql/import-data.sql") // neither does this...
+//                .addAsResource("META-INF/import-data.sql")// this does not exist
+                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+//TODO: https://moodle.nait.ca/pluginfile.php/13434211/mod_resource/content/0/Web%20API%20with%20JAX-RS.html?embed=1
+//TODO: UR ON STEP 8 WRITE THE REST OF THE TESTS.... LOL
+        return webArchive;
     }
     @Order(1)
     @Test
