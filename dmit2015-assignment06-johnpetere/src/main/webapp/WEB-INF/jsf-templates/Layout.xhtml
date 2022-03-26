@@ -43,11 +43,14 @@
             <p:menubar>
                 <p:menuitem value="Home" icon="pi pi-fw pi-home" url="#{request.contextPath}/index.xhtml"/>
 
-                <p:submenu label="Movie" icon="pi pi-fw pi-file">
-                    <p:menuitem value="List" icon="pi pi-fw pi-list"
-                                url="#{request.contextPath}/Movie/index.xhtml"/>
-                    <p:menuitem value="Create" icon="pi pi-fw pi-plus"
-                                url="#{request.contextPath}/Movie/create.xhtml"/>
+                <p:submenu label="BILL CRUD" icon="pi pi-fw pi-file">
+                    <p:menuitem value="List Bills" icon="pi pi-fw pi-list"
+                                url="#{request.contextPath}/bill/index.xhtml"/>
+                    <p:menuitem value="Create Bill" icon="pi pi-fw pi-plus"
+                                url="#{request.contextPath}/bill/create.xhtml"/>
+                    <p:menuitem value="List Outstanding Bills" icon="pi pi-fw pi-plus"
+                                url="#{request.contextPath}/bill/oustandingbillsdetails.xhtml"/>
+
                 </p:submenu>
                 <f:verbatim>
                 </f:verbatim>
