@@ -35,6 +35,18 @@
                 <h:outputText value="#{currentBillDetailsController.existingBill.dueDate}">
                     <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
                 </h:outputText>
+                <h:panelGroup>
+                    <strong><h:outputText value="Created"/></strong>
+                </h:panelGroup>
+                <h:outputText value="#{currentBillDetailsController.existingBill.createdDateTime}">
+                    <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                </h:outputText>
+                <h:panelGroup>
+                    <strong><h:outputText value="Last Changed"/></strong>
+                </h:panelGroup>
+                <h:outputText value="#{currentBillDetailsController.existingBill.lastModifiedDateTime}">
+                    <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                </h:outputText>
 
                 <h:panelGroup>
                     <strong><h:outputText value="Amount Due"/></strong>
@@ -44,7 +56,10 @@
                     <strong><h:outputText value="Balance"/></strong>
                 </h:panelGroup>
                 <h:outputText value="#{currentBillDetailsController.existingBill.paymentBalance}"/>
-
+                <h:panelGroup>
+                    <strong><h:outputText value="version"/></strong>
+                </h:panelGroup>
+                <h:outputText value="#{currentBillDetailsController.existingBill.version}"/>
 <!--                &lt;!&ndash; TODO: Add rows for the properties of the entity &ndash;&gt;-->
 
             </p:panelGrid>

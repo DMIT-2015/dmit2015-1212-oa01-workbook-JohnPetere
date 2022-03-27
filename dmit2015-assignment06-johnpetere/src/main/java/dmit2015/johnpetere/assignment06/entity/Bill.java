@@ -37,7 +37,7 @@ public class Bill implements Serializable {
 
     @Column BigDecimal paymentBalance;
 
-    @Column
+    @Version
     private Integer version;
 
     @Column(nullable = false)
