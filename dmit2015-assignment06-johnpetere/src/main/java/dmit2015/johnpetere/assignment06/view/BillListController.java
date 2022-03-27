@@ -13,6 +13,8 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @Named("currentBillListController")
@@ -26,10 +28,15 @@ public class BillListController implements Serializable {
     @Getter
     private List<Bill> billList;
 
+    @Getter List<Bill> ouststangBills;
     @PostConstruct  // After @Inject is complete
     public void init() {
         try {
-            billList = _billRepository.list();
+            billList = _billRepository.listByDate();
+
+//            ouststangBills = billList.stream()
+//                    .findAny(bill -> bill.getPaymentBalance().doubleValue()   < BigDecimal.ZERO.doubleValue());
+            ouststangBills = billList.stream().filter(bill -> bill.getPaymentBalance().doubleValue() > BigDecimal.ZERO.doubleValue()).toList();
         } catch (Exception ex) {
             Messages.addGlobalError(ex.getMessage());
         }

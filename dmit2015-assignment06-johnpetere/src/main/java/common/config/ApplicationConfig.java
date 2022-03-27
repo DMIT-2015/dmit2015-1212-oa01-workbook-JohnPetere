@@ -3,7 +3,7 @@ package common.config;
 import jakarta.annotation.sql.DataSourceDefinition;
 import jakarta.annotation.sql.DataSourceDefinitions;
 import jakarta.enterprise.context.ApplicationScoped;
-
+import jakarta.faces.annotation.FacesConfig;
 @DataSourceDefinitions({
 
         @DataSourceDefinition(
@@ -14,7 +14,7 @@ import jakarta.enterprise.context.ApplicationScoped;
                 password="RemotePassword200417166"),    // Replace 200012345 with your NAIT StudentID
 
 })
-
+@FacesConfig
 @ApplicationScoped
 public class ApplicationConfig {
 

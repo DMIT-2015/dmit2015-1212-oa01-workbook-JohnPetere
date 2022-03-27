@@ -36,6 +36,11 @@
                 <p:column headerText="BILL ID">
                     <h:outputText value="#{currentItem.id}"/>
                 </p:column>
+                <p:column headerText="DUE date">
+                    <h:outputText value="#{currentItem.dueDate}"/>
+
+                </p:column>
+
                 <p:column headerText="Payee">
                     <h:outputText value="#{currentItem.payeeName}"/>
                 </p:column>
@@ -48,17 +53,17 @@
                 <!-- TODO: add p:column for the properties of the entity to display -->
 
                 <p:column headerText="Action">
-<!--                    <p:link id="editLink" outcome="edit" value="edit">-->
-<!--                        <f:param name="editId" value="#{currentItem.id}"/>-->
-<!--                    </p:link>-->
+                    <p:link id="editLink" outcome="edit" value="edit">
+                        <f:param name="editId" value="#{currentItem.id}"/>
+                    </p:link>
 
-<!--                    |-->
+                    |
 
                     <p:link id="detailsLink" outcome="details" value="details">
                         <f:param name="editId" value="#{currentItem.id}"/>
                     </p:link>
 
-<!--                    |-->
+                    |
 
                     <p:link id="deleteLink" outcome="delete" value="delete">
                         <f:param name="editId" value="#{currentItem.id}"/>

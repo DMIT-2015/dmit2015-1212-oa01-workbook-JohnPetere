@@ -13,34 +13,66 @@
         template="/WEB-INF/jsf-templates/Layout.xhtml"
 >
 
-    <ui:param name="title" value="Bill Details"/>
+    <ui:param name="title" value="Bill - List"/>
 
     <ui:define name="maincontent">
 
-        <p:panel header="Bill Details">
-            <p:panelGrid columns="2">
-                <h:panelGroup>
-                    <strong><h:outputText value="IDPropertyName"/></strong>
-                </h:panelGroup>
-                <h:outputText value="#{currentBillDetailsController.editId}"/>
+        <h1>Bill List</h1>
 
-                <h:panelGroup>
-                    <strong><h:outputText value="PropertyName"/></strong>
-                </h:panelGroup>
-                <h:outputText value="#{currentBillDetailsController.existingBill.propertyName}"/>
+        <p:messages id="messages"/>
 
-                <!-- TODO: Add rows for the properties of the entity -->
+        <h:form>
 
-            </p:panelGrid>
+            <p:commandButton value="Create New"
+                             action="create"
+                             icon="pi pi-database"
+            >
+            </p:commandButton>
 
-        </p:panel>
+            <p:dataTable id="entityTable"
+                         value="#{currentBillListController.ouststangBills}"
+                         var="currentItem">
 
-<!--        <p:link id="editLink" outcome="edit" icon="pi pi-user-edit" value="edit">-->
-<!--            <f:param name="editId" value="#{currentBillDetailsController.editId}"/>-->
-<!--        </p:link>-->
-<!--        |-->
-        <p:link id="backToListLink" outcome="index" value="Back to List">
-        </p:link>
+                <p:column headerText="BILL ID">
+                    <h:outputText value="#{currentItem.id}"/>
+                </p:column>
+                <p:column headerText="DUE date">
+                    <h:outputText value="#{currentItem.dueDate}"/>
+
+                </p:column>
+                <p:column headerText="Payee">
+                    <h:outputText value="#{currentItem.payeeName}"/>
+                </p:column>
+                <p:column headerText="payment Due">
+                    <h:outputText value="#{currentItem.paymentDue}"/>
+                </p:column>
+                <p:column headerText="Balance">
+                    <h:outputText value="#{currentItem.paymentBalance}"/>
+                </p:column>
+                <!-- TODO: add p:column for the properties of the entity to display -->
+
+                <p:column headerText="Action">
+                    <p:link id="editLink" outcome="edit" value="edit">
+                        <f:param name="editId" value="#{currentItem.id}"/>
+                    </p:link>
+
+                    |
+
+                    <p:link id="detailsLink" outcome="details" value="details">
+                        <f:param name="editId" value="#{currentItem.id}"/>
+                    </p:link>
+
+                    |
+
+                    <p:link id="deleteLink" outcome="delete" value="delete">
+                        <f:param name="editId" value="#{currentItem.id}"/>
+                    </p:link>
+                </p:column>
+
+            </p:dataTable>
+
+        </h:form>
+
     </ui:define>
 
 </ui:composition>
